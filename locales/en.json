@@ -1,0 +1,21 @@
+{
+    "welcome": "Welcome back.",
+    "intro_login": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    "login": "Login",
+    "subtextlogin": "Input your email and password",
+    "donthaveaccount": "Don't have an account? Register",
+    "register": "Register",
+    "username": "Username",
+    "subtextresiger": "Register for new account",
+    "alreadyhaveaccount": "Already have an account?",
+    "required": "This field is required",
+    "validEmail": "Enter a valid email",
+    "passwordLength": "Password must be 6 chars or more",
+    "email": "Email",
+    "password": "Password",
+    "login_fail_title": "Login failed",
+    "login_fail_msg": "Please check your email and password",
+    "login_success_title": "Login Success",
+    "login_success_msg": "Welcome to our website",
+    "ok_button": "OK"
+}

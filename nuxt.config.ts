@@ -4,6 +4,9 @@ import vuetify from "vite-plugin-vuetify"
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: true,
+  routeRules: {
+    '/backend/**': {ssr: false}
+  },
   css: ["@/assets/scss/style.scss"],
   build: {
     transpile: ["vuetify"],
@@ -18,6 +21,7 @@ export default defineNuxtConfig({
   },
   modules: [
     "nuxt-icon",
+    "@nuxtjs/i18n",
     [
       "@nuxtjs/robots",
       {
@@ -33,6 +37,9 @@ export default defineNuxtConfig({
 			nuxt.hooks.hook("vite:extendConfig", (config) => config.plugins.push(vuetify()))
 		},
   ],
+  i18n: {
+    vueI18n: './i18n/i18n.config.ts'
+  },
   app: {
     head: {
       htmlAttrs: {
@@ -43,6 +50,13 @@ export default defineNuxtConfig({
       },
       charset: 'utf-8',
       titleTemplate: '%s - Nuxt 3 Vuetify',
+      link: [
+        {
+					rel: "stylesheet",
+					href: "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@200;300;400;500;600;700&family=Inter:wght@200;300;400;500;600;700;800;900&display=swap",
+				},
+				{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      ],
       meta: [
         { 
           name: 'viewport', 
@@ -53,6 +67,14 @@ export default defineNuxtConfig({
           content: "IT Genius Engineering Ltd., Thailand"
         },
       ]
+    }
+  },
+  runtimeConfig: {
+    public: {
+      strapi: {
+        url: process.env.STRAPI_URL || "http://localhost:1337/api",
+      },
+      urlroot: process.env.STRAPI_URL_ROOT || "http://localhost:1337",
     }
   },
 })
